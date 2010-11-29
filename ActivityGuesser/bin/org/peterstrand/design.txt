@@ -1,0 +1,6 @@
+
+
+
+SmallSection -- small period of time ( 5-10 seconds) of detailed movement data and a movement guess. Can have position.
+LargeSection -- Collection of 10-20 smallsections. MUST have at least one position, or a failure position.
+Session      -- current active collection period. Has a start time, a start position ( or unknown ) 

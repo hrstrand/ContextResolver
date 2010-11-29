@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, TestGuess!</string>
+    <string name="app_name">Context Speaker</string>
+     <string name="info">
+     	This application will speak the current or ongoing context.\n
+     	The current context is what is detected within the last 12 seconds. It can be either WALKING, RUNNING or IDLE.\n\n
+     	The ongoing context is a summarised estimate of the current activity. It can be either WALKING, RUNNING, VEHICLE or IDLE.\n\n
+     </string>
+</resources>

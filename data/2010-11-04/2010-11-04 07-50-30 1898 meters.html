@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 Example: Polyline Simple</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+ function initialize() {
+   var myLatLng = new google.maps.LatLng(0, -180);
+   var myOptions = {
+     zoom: 3,
+     center: myLatLng,
+     mapTypeId: google.maps.MapTypeId.TERRAIN
+   };
+   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+   var flightPlanCoordinates = [
+       new google.maps.LatLng(
+55.74955950000001, 
+12.3767152),       new google.maps.LatLng(
+55.751745, 
+12.37691),       new google.maps.LatLng(
+55.751745, 
+12.37691),       new google.maps.LatLng(
+55.7477971, 
+12.3774889),       new google.maps.LatLng(
+55.748067933333324, 
+12.377337366666666),       new google.maps.LatLng(
+55.7480018, 
+12.374735966666668),       new google.maps.LatLng(
+55.749226, 
+12.3741394),       new google.maps.LatLng(
+55.7495683, 
+12.3767193),       new google.maps.LatLng(
+55.74816532, 
+12.37730154),       new google.maps.LatLng(
+55.748884616666665, 
+12.374617283333334),       new google.maps.LatLng(
+55.749226, 
+12.3741394),       new google.maps.LatLng(
+55.7495467, 
+12.376495166666666),       new google.maps.LatLng(
+55.74820335, 
+12.3772616),       new google.maps.LatLng(
+55.74825660000001, 
+12.377262366666665),       new google.maps.LatLng(
+55.74816532, 
+12.37730154)   ];
+   var flightPath = new google.maps.Polyline({
+     path: flightPlanCoordinates,
+     strokeColor: "#FF0000",
+     strokeOpacity: 1.0,
+     strokeWeight: 2
+   });
+  flightPath.setMap(map);
+ }
+ </script>
+ </head>
+<body onload="initialize()">
+ <div id="map_canvas"></div>
+	</body>
+</html>

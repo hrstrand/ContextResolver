@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 Example: Polyline Simple</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+ function initialize() {
+   var myLatLng = new google.maps.LatLng(0, -180);
+   var myOptions = {
+     zoom: 3,
+     center: myLatLng,
+     mapTypeId: google.maps.MapTypeId.TERRAIN
+   };
+   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+   var flightPlanCoordinates = [
+       new google.maps.LatLng(
+55.6856741, 
+12.3685693),       new google.maps.LatLng(
+55.68361023333333, 
+12.369162433333335),       new google.maps.LatLng(
+55.68361023333333, 
+12.369162433333335),       new google.maps.LatLng(
+55.722441, 
+12.370319),       new google.maps.LatLng(
+55.731367999999996, 
+12.374297366666667),       new google.maps.LatLng(
+55.7477923, 
+12.382820525),       new google.maps.LatLng(
+55.74912513333334, 
+12.37720241111111),       new google.maps.LatLng(
+55.74951845, 
+12.376096025),       new google.maps.LatLng(
+55.7493327, 
+12.3761918),       new google.maps.LatLng(
+55.749456483333326, 
+12.376456233333334),       new google.maps.LatLng(
+55.74952846, 
+12.37621766),       new google.maps.LatLng(
+55.74930976666667, 
+12.376629366666668),       new google.maps.LatLng(
+55.74930976666667, 
+12.376629366666668),       new google.maps.LatLng(
+55.74958026666667, 
+12.376720666666666)   ];
+   var flightPath = new google.maps.Polyline({
+     path: flightPlanCoordinates,
+     strokeColor: "#FF0000",
+     strokeOpacity: 1.0,
+     strokeWeight: 2
+   });
+  flightPath.setMap(map);
+ }
+ </script>
+ </head>
+<body onload="initialize()">
+ <div id="map_canvas"></div>
+	</body>
+</html>

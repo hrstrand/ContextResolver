@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 Example: Polyline Simple</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+ function initialize() {
+   var myLatLng = new google.maps.LatLng(0, -180);
+   var myOptions = {
+     zoom: 3,
+     center: myLatLng,
+     mapTypeId: google.maps.MapTypeId.TERRAIN
+   };
+   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+   var flightPlanCoordinates = [
+       new google.maps.LatLng(
+55.749561060000005, 
+12.3765917),       new google.maps.LatLng(
+55.7495664, 
+12.37671915),       new google.maps.LatLng(
+55.74955551666667, 
+12.376757466666668),       new google.maps.LatLng(
+55.75001638, 
+12.37822302),       new google.maps.LatLng(
+55.749666, 
+12.3808557),       new google.maps.LatLng(
+55.749666, 
+12.3808557),       new google.maps.LatLng(
+55.749666, 
+12.3808557),       new google.maps.LatLng(
+55.749613749999995, 
+12.38109295),       new google.maps.LatLng(
+55.749666, 
+12.3808557),       new google.maps.LatLng(
+55.7498632, 
+12.378602449999999),       new google.maps.LatLng(
+55.750182099999996, 
+12.37907662),       new google.maps.LatLng(
+55.75023515, 
+12.378528750000001),       new google.maps.LatLng(
+55.7500815, 
+12.378499833333334),       new google.maps.LatLng(
+55.7499303, 
+12.377062599999999),       new google.maps.LatLng(
+55.749566400000006, 
+12.37671915)   ];
+   var flightPath = new google.maps.Polyline({
+     path: flightPlanCoordinates,
+     strokeColor: "#FF0000",
+     strokeOpacity: 1.0,
+     strokeWeight: 2
+   });
+  flightPath.setMap(map);
+ }
+ </script>
+ </head>
+<body onload="initialize()">
+ <div id="map_canvas"></div>
+	</body>
+</html>

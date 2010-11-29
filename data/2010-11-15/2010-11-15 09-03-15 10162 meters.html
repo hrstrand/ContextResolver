@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 Example: Polyline Simple</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+function Label(opt_options) {
+	 // Initialization
+	 this.setValues(opt_options);
+	
+	 // Label specific
+	 var span = this.span_ = document.createElement('span');
+	 span.style.cssText = 'position: relative; left: -50%; top: -8px; ' +
+	                      'white-space: nowrap; border: 1px solid blue; ' +
+	                      'padding: 2px; background-color: white';
+
+	 var div = this.div_ = document.createElement('div');
+	 div.appendChild(span);
+	 div.style.cssText = 'position: absolute; display: none';
+	};
+	Label.prototype = new google.maps.OverlayView;
+// Implement onAdd
+	Label.prototype.onAdd = function() {
+	 var pane = this.getPanes().overlayLayer;
+	 pane.appendChild(this.div_);
+// Ensures the label is redrawn if the text or position is changed.
+	 var me = this;
+	 this.listeners_ = [
+	   google.maps.event.addListener(this, 'position_changed',
+	       function() { me.draw(); }),
+	   google.maps.event.addListener(this, 'text_changed',
+	       function() { me.draw(); })
+	 ];
+	};
+	// Implement onRemove
+	Label.prototype.onRemove = function() {
+	 this.div_.parentNode.removeChild(this.div_);
+
+	 // Label is removed from the map, stop updating its position/text.
+	 for (var i = 0, I = this.listeners_.length; i < I; ++i) {
+	   google.maps.event.removeListener(this.listeners_[i]);
+	 }
+	};
+	// Implement draw
+	Label.prototype.draw = function() {
+	 var projection = this.getProjection();
+	 var position = projection.fromLatLngToDivPixel(this.get('position'));
+	 var div = this.div_;
+	 div.style.left = position.x + 'px';
+	 div.style.top = position.y + 'px';
+	 div.style.display = 'block';
+	 this.span_.innerHTML = this.get('text').toString();
+	};
+ function initialize() {
+   var myLatLng = new google.maps.LatLng(55, 12);
+   var myOptions = {
+     zoom: 6,
+     center: myLatLng,
+     mapTypeId: google.maps.MapTypeId.ROADMAP
+   };
+   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+   var flightPlanCoordinates = [
+       new google.maps.LatLng(
+55.74965927999999, 
+12.37652304),       new google.maps.LatLng(
+55.74954113333333, 
+12.376702133333334),       new google.maps.LatLng(
+55.75087106666667, 
+12.378863716666666),       new google.maps.LatLng(
+55.750572, 
+12.387123125),       new google.maps.LatLng(
+55.75043305, 
+12.40143625),       new google.maps.LatLng(
+55.752849049999995, 
+12.40771145),       new google.maps.LatLng(
+55.7567982, 
+12.419575700000001),       new google.maps.LatLng(
+55.763675533333334, 
+12.440946733333334),       new google.maps.LatLng(
+55.76584606, 
+12.449039359999999),       new google.maps.LatLng(
+55.765316500000004, 
+12.465120133333334),       new google.maps.LatLng(
+55.764595066666665, 
+12.4798661),       new google.maps.LatLng(
+55.76579116666667, 
+12.491779350000002),       new google.maps.LatLng(
+55.769865499999995, 
+12.502246),       new google.maps.LatLng(
+55.77259848, 
+12.50443004),       new google.maps.LatLng(
+55.777052420000004, 
+12.50783355),       new google.maps.LatLng(
+55.781306959999995, 
+12.513484039999998),       new google.maps.LatLng(
+55.78239608, 
+12.51396232),       new google.maps.LatLng(
+55.78247699999999, 
+12.51403608)   ];
+   var flightPath = new google.maps.Polyline({
+     path: flightPlanCoordinates,
+     strokeColor: "#FF0000",
+     strokeOpacity: 1.0,
+     strokeWeight: 2
+   });
+  flightPath.setMap(map);
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 25.0,center: new google.maps.LatLng(55.74965927999999, 12.37652304) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.74965927999999, 12.37652304),text : '0' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 50.0,center: new google.maps.LatLng(55.74954113333333, 12.376702133333334) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.74954113333333, 12.376702133333334),text : '2' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 66.0,center: new google.maps.LatLng(55.75087106666667, 12.378863716666666) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.75087106666667, 12.378863716666666),text : '4' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 55.0,center: new google.maps.LatLng(55.750572, 12.387123125) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.750572, 12.387123125),text : '6' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 75.0,center: new google.maps.LatLng(55.75043305, 12.40143625) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.75043305, 12.40143625),text : '8' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 60.0,center: new google.maps.LatLng(55.752849049999995, 12.40771145) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.752849049999995, 12.40771145),text : '11' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 65.0,center: new google.maps.LatLng(55.7567982, 12.419575700000001) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.7567982, 12.419575700000001),text : '13' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 71.0,center: new google.maps.LatLng(55.763675533333334, 12.440946733333334) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.763675533333334, 12.440946733333334),text : '16' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 70.0,center: new google.maps.LatLng(55.76584606, 12.449039359999999) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.76584606, 12.449039359999999),text : '19' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 59.0,center: new google.maps.LatLng(55.765316500000004, 12.465120133333334) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.765316500000004, 12.465120133333334),text : '21' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 58.0,center: new google.maps.LatLng(55.764595066666665, 12.4798661) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.764595066666665, 12.4798661),text : '23' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 29.0,center: new google.maps.LatLng(55.76579116666667, 12.491779350000002) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.76579116666667, 12.491779350000002),text : '26' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 59.0,center: new google.maps.LatLng(55.769865499999995, 12.502246) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.769865499999995, 12.502246),text : '28' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 28.0,center: new google.maps.LatLng(55.77259848, 12.50443004) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.77259848, 12.50443004),text : '30' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 60.0,center: new google.maps.LatLng(55.777052420000004, 12.50783355) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.777052420000004, 12.50783355),text : '33' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 54.0,center: new google.maps.LatLng(55.781306959999995, 12.513484039999998) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.781306959999995, 12.513484039999998),text : '35' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 53.0,center: new google.maps.LatLng(55.78239608, 12.51396232) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.78239608, 12.51396232),text : '37' });
+var cirle = new google.maps.Circle({  fillColor : '#0000FF',  fillOpacity : 0.2,  strokeWeight : 0,  map: map,  radius: 53.0,center: new google.maps.LatLng(55.78247699999999, 12.51403608) });
+var label = new Label({  map: map,position: new google.maps.LatLng(55.78247699999999, 12.51403608),text : '41' });
+ }
+ </script>
+ </head>
+<body onload="initialize()">
+ <div id="map_canvas"></div>
+	</body>
+</html>

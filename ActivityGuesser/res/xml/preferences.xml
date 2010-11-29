@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <PreferenceCategory
+                android:title="Service &amp; Watcher preferences">
+                <CheckBoxPreference
+                        android:title="Run sensor watcher"
+                        android:defaultValue="true"
+                        android:summary="Runs background service to check for movement status"
+                        android:key="runWatcherPref" />
+                <CheckBoxPreference
+                        android:title="Use location checker"
+                        android:defaultValue="true"
+                        android:summary="Checks for rough location while moving"
+                        android:key="useLocationPref" />        
+        
+                <ListPreference
+                        android:title="Idle time"
+                        android:summary="How long time should the device sleep between motion checks"
+                        android:key="idleTimePref"
+                        android:defaultValue="10"
+                        android:entries="@array/listArray"
+                        android:entryValues="@array/listValues" />
+                <ListPreference
+                        android:title="Location check interval"
+                        android:summary="How long time should the device wait between each location request"
+                        android:key="locationTimePref"
+                        android:defaultValue="60"
+                        android:entries="@array/locationWaitArray"
+                        android:entryValues="@array/locationWaitValues" />        
+                        
+        </PreferenceCategory>
+
+</PreferenceScreen>

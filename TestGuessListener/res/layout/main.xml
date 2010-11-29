@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@drawable/redbackgroundgradient">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Context Speaker"
+		android:id="@+id/header" android:textColor="#FFAA2244"
+		android:textSize="35sp" android:gravity="center"
+		android:paddingBottom="20dip" />
+<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/LinearLayout01" android:layout_below="@+id/header" >
+	
+	<ToggleButton android:layout_height="wrap_content" android:text="Speak" android:layout_toRightOf="@+id/smallText" android:layout_below="@+id/header" android:layout_width="wrap_content" android:id="@+id/smallToggleButton" ></ToggleButton>
+	<TextView android:text="Current" 
+			android:id="@+id/smallTextHeader"
+			android:textColor="#FFFFDDDD"
+			android:textSize="20sp"
+			android:paddingRight="20dip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"> 
+			
+	</TextView>
+	
+	<TextView android:text="-" 
+			android:id="@+id/smallText"
+			android:textColor="#FFFFDDDD"
+			android:textSize="20sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"> 
+	</TextView>
+
+</LinearLayout>
+
+<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/LinearLayout02" android:layout_below="@+id/LinearLayout01" >
+	<ToggleButton android:layout_height="wrap_content" android:text="Speak" android:layout_toRightOf="@+id/smallText" android:layout_below="@+id/header" android:layout_width="wrap_content" android:id="@+id/ongoingToggleButton" ></ToggleButton>
+	<TextView android:text="Ongoing" 
+			android:id="@+id/ongoingTextHeader"
+			android:textSize="20sp"
+			android:paddingRight="20dip"
+			android:layout_width="wrap_content"
+			android:textColor="#FFFFDDDD"
+			android:layout_height="wrap_content"> 
+			
+	</TextView>
+	<TextView android:text="-" 
+			android:id="@+id/ongoingText" 
+			android:textColor="#FFFFDDDD"
+			android:textSize="20sp"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"></TextView>
+
+
+</LinearLayout>
+	<TextView android:text="@+string/info" 
+			android:id="@+id/ongoingText" 
+			android:textSize="13sp"
+			android:paddingTop="30dip"
+			android:layout_width="wrap_content" 
+			android:layout_below="@+id/LinearLayout02"
+			android:layout_height="wrap_content"></TextView>
+
+
+
+</RelativeLayout>

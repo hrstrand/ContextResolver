@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 Example: Polyline Simple</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+ function initialize() {
+   var myLatLng = new google.maps.LatLng(0, -180);
+   var myOptions = {
+     zoom: 3,
+     center: myLatLng,
+     mapTypeId: google.maps.MapTypeId.TERRAIN
+   };
+   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+   var flightPlanCoordinates = [
+       new google.maps.LatLng(
+55.633027, 
+12.657241),       new google.maps.LatLng(
+55.633027, 
+12.657241),       new google.maps.LatLng(
+55.6333479, 
+12.653927),       new google.maps.LatLng(
+55.6190065, 
+12.513544),       new google.maps.LatLng(
+55.655105, 
+12.423004),       new google.maps.LatLng(
+55.681723, 
+12.425548),       new google.maps.LatLng(
+55.687626, 
+12.42782),       new google.maps.LatLng(
+55.6845861, 
+12.3917931),       new google.maps.LatLng(
+55.68414825, 
+12.37727035),       new google.maps.LatLng(
+55.685726599999995, 
+12.36835795),       new google.maps.LatLng(
+55.6856741, 
+12.3685693)   ];
+   var flightPath = new google.maps.Polyline({
+     path: flightPlanCoordinates,
+     strokeColor: "#FF0000",
+     strokeOpacity: 1.0,
+     strokeWeight: 2
+   });
+  flightPath.setMap(map);
+ }
+ </script>
+ </head>
+<body onload="initialize()">
+ <div id="map_canvas"></div>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 Example: Polyline Simple</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+ function initialize() {
+   var myLatLng = new google.maps.LatLng(0, -180);
+   var myOptions = {
+     zoom: 3,
+     center: myLatLng,
+     mapTypeId: google.maps.MapTypeId.TERRAIN
+   };
+   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+   var flightPlanCoordinates = [
+       new google.maps.LatLng(
+55.78251023, 
+12.51395238),       new google.maps.LatLng(
+55.782486042857144, 
+12.514046685714286),       new google.maps.LatLng(
+55.7813662, 
+12.5140145),       new google.maps.LatLng(
+55.777197619999995, 
+12.50779681),       new google.maps.LatLng(
+55.77168519999999, 
+12.503348),       new google.maps.LatLng(
+55.7717763, 
+12.501905266666668),       new google.maps.LatLng(
+55.77248508, 
+12.500652480000001),       new google.maps.LatLng(
+55.7655608, 
+12.488149857142858),       new google.maps.LatLng(
+55.76490453333333, 
+12.481711250000002),       new google.maps.LatLng(
+55.7646051, 
+12.4577351),       new google.maps.LatLng(
+55.765846859999996, 
+12.448940060000002),       new google.maps.LatLng(
+55.76343655, 
+12.439961799999999),       new google.maps.LatLng(
+55.75831383333334, 
+12.426003566666665),       new google.maps.LatLng(
+55.755115675, 
+12.413421125),       new google.maps.LatLng(
+55.748892299999994, 
+12.395989799999999),       new google.maps.LatLng(
+55.7509531, 
+12.383832375),       new google.maps.LatLng(
+55.7509194, 
+12.3777246),       new google.maps.LatLng(
+55.749607600000004, 
+12.376907275)   ];
+   var flightPath = new google.maps.Polyline({
+     path: flightPlanCoordinates,
+     strokeColor: "#FF0000",
+     strokeOpacity: 1.0,
+     strokeWeight: 2
+   });
+  flightPath.setMap(map);
+ }
+ </script>
+ </head>
+<body onload="initialize()">
+ <div id="map_canvas"></div>
+	</body>
+</html>
